@@ -2,21 +2,21 @@ import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { By } from '@angular/platform-browser';
 import { NO_ERRORS_SCHEMA } from '@angular/core';
 
-import { OfferOrdersTableComponent } from './offer-orders-table.component';
+import { OrderItemsTableComponent } from './order-items-table.component';
 
-describe('OfferOrdersTableComponent', () => {
-    let component: OfferOrdersTableComponent;
-    let fixture: ComponentFixture<OfferOrdersTableComponent>;
+describe('OrderItemsTableComponent', () => {
+    let component: OrderItemsTableComponent;
+    let fixture: ComponentFixture<OrderItemsTableComponent>;
 
     beforeEach(async(() => {
         TestBed.configureTestingModule({
-            declarations: [OfferOrdersTableComponent],
+            declarations: [OrderItemsTableComponent],
             schemas: [NO_ERRORS_SCHEMA],
         }).compileComponents();
     }));
 
     beforeEach(() => {
-        fixture = TestBed.createComponent(OfferOrdersTableComponent);
+        fixture = TestBed.createComponent(OrderItemsTableComponent);
         component = fixture.componentInstance;
     });
 
