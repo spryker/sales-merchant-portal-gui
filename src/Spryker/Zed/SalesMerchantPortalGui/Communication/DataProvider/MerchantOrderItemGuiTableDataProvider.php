@@ -154,10 +154,7 @@ class MerchantOrderItemGuiTableDataProvider extends AbstractGuiTableDataProvider
      */
     protected function getImageUrl(ItemTransfer $itemTransfer): ?string
     {
-        /** @var \ArrayObject<int, \Generated\Shared\Transfer\ProductImageTransfer> $images */
-        $images = $itemTransfer->getImages();
-
-        return isset($images[0]) ? $images[0]->getExternalUrlSmall() : null;
+        return isset($itemTransfer->getImages()[0]) ? $itemTransfer->getImages()[0]->getExternalUrlSmall() : null;
     }
 
     /**
