@@ -2,6 +2,7 @@ import { ChangeDetectionStrategy, Component, Input, ViewEncapsulation } from '@a
 import { TableConfig } from '@spryker/table';
 
 @Component({
+    standalone: false,
     selector: 'mp-sales-orders',
     templateUrl: './sales-orders.component.html',
     styleUrls: ['./sales-orders.component.less'],

@@ -1,6 +1,7 @@
 import { ChangeDetectionStrategy, Component, ViewEncapsulation, Input } from '@angular/core';
 
 @Component({
+    standalone: false,
     selector: 'mp-manage-order-stats-block',
     templateUrl: './manage-order-stats-block.component.html',
     styleUrls: ['./manage-order-stats-block.component.less'],

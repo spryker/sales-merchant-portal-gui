@@ -1,21 +1,21 @@
 import { NO_ERRORS_SCHEMA } from '@angular/core';
-import { TestBed } from '@angular/core/testing';
+import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { By } from '@angular/platform-browser';
-import { createComponentWrapper, getTestingForComponent } from '@mp/zed-ui/testing';
 import { ManageOrderTotalsComponent } from './manage-order-totals.component';
 
 describe('ManageOrderTotalsComponent', () => {
-    const { testModule, createComponent } = getTestingForComponent(ManageOrderTotalsComponent, {
-        ngModule: { schemas: [NO_ERRORS_SCHEMA] },
-    });
+    let fixture: ComponentFixture<ManageOrderTotalsComponent>;
 
     beforeEach(() => {
         TestBed.configureTestingModule({
-            imports: [testModule],
+            declarations: [ManageOrderTotalsComponent],
+            schemas: [NO_ERRORS_SCHEMA],
         });
+
+        fixture = TestBed.createComponent(ManageOrderTotalsComponent);
     });
 
-    it('should render list of totals from `@Input(orderTotals)`', async () => {
+    it('should render list of totals from `@Input(orderTotals)`', () => {
         const mockOrderTotals = [
             {
                 title: 'Subtotal',
@@ -27,17 +27,18 @@ describe('ManageOrderTotalsComponent', () => {
                 value: '€ 972.51',
             },
         ];
-        const host = await createComponentWrapper(createComponent, { orderTotals: mockOrderTotals });
-        const orderTotalElems = host.fixture.debugElement.queryAll(By.css('.mp-manage-order-totals__item'));
+        fixture.componentRef.setInput('orderTotals', mockOrderTotals);
+        fixture.detectChanges();
+        const orderTotalElems = fixture.debugElement.queryAll(By.css('.mp-manage-order-totals__item'));
 
         expect(orderTotalElems.length).toBe(mockOrderTotals.length);
 
         orderTotalElems.forEach((orderTotalElem, i) => {
-            const orderTotalTitleElem = host.queryCss(
-                `.mp-manage-order-totals__item:nth-child(${i + 1}) .mp-manage-order-totals__col:first-child`,
+            const orderTotalTitleElem = fixture.debugElement.query(
+                By.css(`.mp-manage-order-totals__item:nth-child(${i + 1}) .mp-manage-order-totals__col:first-child`),
             );
-            const orderValueTitleElem = host.queryCss(
-                `.mp-manage-order-totals__item:nth-child(${i + 1}) .mp-manage-order-totals__col:last-child`,
+            const orderValueTitleElem = fixture.debugElement.query(
+                By.css(`.mp-manage-order-totals__item:nth-child(${i + 1}) .mp-manage-order-totals__col:last-child`),
             );
 
             expect(orderTotalTitleElem.nativeElement.textContent).toBe(mockOrderTotals[i].title);
@@ -45,7 +46,7 @@ describe('ManageOrderTotalsComponent', () => {
         });
     });
 
-    it('should add `mp-manage-order-totals__item--title` class if `@Input(orderTotals.isTitle)` is true', async () => {
+    it('should add `mp-manage-order-totals__item--title` class if `@Input(orderTotals.isTitle)` is true', () => {
         const mockOrderTotals = [
             {
                 title: 'Subtotal',
@@ -53,8 +54,11 @@ describe('ManageOrderTotalsComponent', () => {
                 isTitle: true,
             },
         ];
-        const host = await createComponentWrapper(createComponent, { orderTotals: mockOrderTotals });
-        const orderTotalTitleElem = host.queryCss('.mp-manage-order-totals__item.mp-manage-order-totals__item--title');
+        fixture.componentRef.setInput('orderTotals', mockOrderTotals);
+        fixture.detectChanges();
+        const orderTotalTitleElem = fixture.debugElement.query(
+            By.css('.mp-manage-order-totals__item.mp-manage-order-totals__item--title'),
+        );
 
         expect(orderTotalTitleElem).toBeTruthy();
     });

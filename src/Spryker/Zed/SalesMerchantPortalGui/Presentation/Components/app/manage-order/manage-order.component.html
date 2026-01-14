@@ -4,11 +4,9 @@
             <ng-content select="[state-transitions]"></ng-content>
 
             <div class="mp-manage-order__transitions-message">
-                <spy-icon
-                    *ngIf="stateTransitionMessage.innerHTML.trim()"
-                    [name]="transitionMessageIcon"
-                    class="mp-manage-order__transitions-icon"
-                ></spy-icon>
+                @if (stateTransitionMessage.innerHTML.trim()) {
+                    <spy-icon [name]="transitionMessageIcon" class="mp-manage-order__transitions-icon"></spy-icon>
+                }
 
                 <div #stateTransitionMessage>
                     <ng-content select="[state-transitions-message]"></ng-content>

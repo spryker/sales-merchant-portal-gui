@@ -1,6 +1,7 @@
 import { ChangeDetectionStrategy, Component, ViewEncapsulation, Input } from '@angular/core';
 
 @Component({
+    standalone: false,
     selector: 'mp-manage-order-collapsible-totals',
     templateUrl: './manage-order-collapsible-totals.component.html',
     styleUrls: ['./manage-order-collapsible-totals.component.less'],

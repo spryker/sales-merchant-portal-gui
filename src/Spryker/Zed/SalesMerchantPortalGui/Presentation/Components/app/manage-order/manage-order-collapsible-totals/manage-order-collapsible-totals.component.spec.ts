@@ -1,44 +1,46 @@
 import { NO_ERRORS_SCHEMA } from '@angular/core';
-import { TestBed } from '@angular/core/testing';
-import { createComponentWrapper, getTestingForComponent } from '@mp/zed-ui/testing';
+import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { By } from '@angular/platform-browser';
 import { ManageOrderCollapsibleTotalsComponent } from './manage-order-collapsible-totals.component';
 
 describe('ManageOrderCollapsibleTotalsComponent', () => {
-    const { testModule, createComponent } = getTestingForComponent(ManageOrderCollapsibleTotalsComponent, {
-        ngModule: { schemas: [NO_ERRORS_SCHEMA] },
-    });
+    let fixture: ComponentFixture<ManageOrderCollapsibleTotalsComponent>;
 
     beforeEach(() => {
         TestBed.configureTestingModule({
-            imports: [testModule],
+            declarations: [ManageOrderCollapsibleTotalsComponent],
+            schemas: [NO_ERRORS_SCHEMA],
         });
+
+        fixture = TestBed.createComponent(ManageOrderCollapsibleTotalsComponent);
     });
 
-    it('should render <spy-html-renderer> component', async () => {
-        const host = await createComponentWrapper(createComponent);
-        const htmlRendererComponent = host.queryCss('spy-html-renderer');
+    it('should render <spy-html-renderer> component', () => {
+        fixture.detectChanges();
+        const htmlRendererComponent = fixture.debugElement.query(By.css('spy-html-renderer'));
 
         expect(htmlRendererComponent).toBeTruthy();
     });
 
-    it('should render <spy-collapsible> component', async () => {
-        const host = await createComponentWrapper(createComponent);
-        const collapsibleComponent = host.queryCss('spy-collapsible');
+    it('should render <spy-collapsible> component', () => {
+        fixture.detectChanges();
+        const collapsibleComponent = fixture.debugElement.query(By.css('spy-collapsible'));
 
         expect(collapsibleComponent).toBeTruthy();
     });
 
-    it('should bound `@Input(url)` to the `urlHtml` input of <spy-html-renderer> component only when `activeChange` event handled on the <spy-collapsible> component', async () => {
+    it('should bound `@Input(url)` to the `urlHtml` input of <spy-html-renderer> component only when `activeChange` event handled on the <spy-collapsible> component', () => {
         const mockUrl = 'url';
-        const host = await createComponentWrapper(createComponent, { url: mockUrl });
-        const collapsibleComponent = host.queryCss('spy-collapsible');
-        const htmlRendererComponent = host.queryCss('spy-html-renderer');
+        fixture.componentRef.setInput('url', mockUrl);
+        fixture.detectChanges();
+        const collapsibleComponent = fixture.debugElement.query(By.css('spy-collapsible'));
+        const htmlRendererComponent = fixture.debugElement.query(By.css('spy-html-renderer'));
 
-        expect(htmlRendererComponent.properties.urlHtml).toBe(undefined);
+        expect(htmlRendererComponent.nativeElement.urlHtml).toBe(undefined);
 
         collapsibleComponent.triggerEventHandler('activeChange', true);
-        host.detectChanges();
+        fixture.detectChanges();
 
-        expect(htmlRendererComponent.properties.urlHtml).toBe(mockUrl);
+        expect(htmlRendererComponent.nativeElement.urlHtml).toBe(mockUrl);
     });
 });

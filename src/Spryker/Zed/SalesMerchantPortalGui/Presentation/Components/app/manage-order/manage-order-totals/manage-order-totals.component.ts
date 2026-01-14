@@ -1,5 +1,5 @@
 import { ChangeDetectionStrategy, Component, ViewEncapsulation, Input } from '@angular/core';
-import { ToJson } from '@spryker/utils';
+import { jsonAttribute } from '@spryker/utils';
 
 export interface OrderTotals {
     title: string;
@@ -8,6 +8,7 @@ export interface OrderTotals {
 }
 
 @Component({
+    standalone: false,
     selector: 'mp-manage-order-totals',
     templateUrl: './manage-order-totals.component.html',
     styleUrls: ['./manage-order-totals.component.less'],
@@ -15,5 +16,5 @@ export interface OrderTotals {
     encapsulation: ViewEncapsulation.None,
 })
 export class ManageOrderTotalsComponent {
-    @Input() @ToJson() orderTotals: OrderTotals[];
+    @Input({ transform: jsonAttribute }) orderTotals: OrderTotals[];
 }

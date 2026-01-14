@@ -1,5 +1,5 @@
 import { ChangeDetectionStrategy, Component, ViewEncapsulation, Input } from '@angular/core';
-import { ToJson } from '@spryker/utils';
+import { jsonAttribute } from '@spryker/utils';
 import { IconInfoModule } from '@spryker/icon/icons';
 
 export interface OrderDetails {
@@ -9,6 +9,7 @@ export interface OrderDetails {
 }
 
 @Component({
+    standalone: false,
     selector: 'mp-manage-order',
     templateUrl: './manage-order.component.html',
     styleUrls: ['./manage-order.component.less'],
@@ -19,7 +20,7 @@ export interface OrderDetails {
     },
 })
 export class ManageOrderComponent {
-    @Input() @ToJson() orderDetails?: OrderDetails;
+    @Input({ transform: jsonAttribute }) orderDetails?: OrderDetails;
 
     transitionMessageIcon = IconInfoModule.icon;
 }
