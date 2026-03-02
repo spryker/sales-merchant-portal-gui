@@ -44,12 +44,6 @@ class MerchantOrderGuiTableDataProvider extends AbstractGuiTableDataProvider
      */
     protected SalesMerchantPortalGuiToMoneyFacadeInterface $moneyFacade;
 
-    /**
-     * @param \Spryker\Zed\SalesMerchantPortalGui\Persistence\SalesMerchantPortalGuiRepositoryInterface $salesMerchantPortalGuiRepository
-     * @param \Spryker\Zed\SalesMerchantPortalGui\Dependency\Facade\SalesMerchantPortalGuiToMerchantUserFacadeInterface $merchantUserFacade
-     * @param \Spryker\Zed\SalesMerchantPortalGui\Dependency\Facade\SalesMerchantPortalGuiToCurrencyFacadeInterface $currencyFacade
-     * @param \Spryker\Zed\SalesMerchantPortalGui\Dependency\Facade\SalesMerchantPortalGuiToMoneyFacadeInterface $moneyFacade
-     */
     public function __construct(
         SalesMerchantPortalGuiRepositoryInterface $salesMerchantPortalGuiRepository,
         SalesMerchantPortalGuiToMerchantUserFacadeInterface $merchantUserFacade,
@@ -62,11 +56,6 @@ class MerchantOrderGuiTableDataProvider extends AbstractGuiTableDataProvider
         $this->moneyFacade = $moneyFacade;
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\GuiTableDataRequestTransfer $guiTableDataRequestTransfer
-     *
-     * @return \Spryker\Shared\Kernel\Transfer\AbstractTransfer
-     */
     protected function createCriteria(GuiTableDataRequestTransfer $guiTableDataRequestTransfer): AbstractTransfer
     {
         return (new MerchantOrderTableCriteriaTransfer())
@@ -112,11 +101,6 @@ class MerchantOrderGuiTableDataProvider extends AbstractGuiTableDataProvider
             ->setTotal($paginationTransfer->getNbResultsOrFail());
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\OrderTransfer $orderTransfer
-     *
-     * @return string
-     */
     protected function getCustomerData(OrderTransfer $orderTransfer): string
     {
         if ($orderTransfer->getSalutation()) {
@@ -131,11 +115,6 @@ class MerchantOrderGuiTableDataProvider extends AbstractGuiTableDataProvider
         return sprintf('%s %s', $orderTransfer->getFirstNameOrFail(), $orderTransfer->getLastNameOrFail());
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\MerchantOrderTransfer $merchantOrderTransfer
-     *
-     * @return string
-     */
     protected function getGrandTotalData(MerchantOrderTransfer $merchantOrderTransfer): string
     {
         $totalsTransfer = $merchantOrderTransfer->getTotalsOrFail();

@@ -42,11 +42,6 @@ class TriggerMerchantOmsController extends AbstractSalesMerchantPortalGuiControl
      */
     protected const RESPONSE_NOTIFICATION_MESSAGE_SUCCESS = 'The state is updated successfully.';
 
-    /**
-     * @param \Symfony\Component\HttpFoundation\Request $request
-     *
-     * @return \Symfony\Component\HttpFoundation\JsonResponse
-     */
     public function indexAction(Request $request): JsonResponse
     {
         $idMerchantOrder = $this->castId($request->get(static::PARAM_ID_MERCHANT_ORDER));
@@ -73,11 +68,6 @@ class TriggerMerchantOmsController extends AbstractSalesMerchantPortalGuiControl
         return $this->createSuccessJsonResponse();
     }
 
-    /**
-     * @param \Symfony\Component\HttpFoundation\Request $request
-     *
-     * @return \Symfony\Component\HttpFoundation\JsonResponse
-     */
     public function batchAction(Request $request): JsonResponse
     {
         $eventName = $request->get(static::PARAM_EVENT_NAME);
@@ -140,9 +130,6 @@ class TriggerMerchantOmsController extends AbstractSalesMerchantPortalGuiControl
             ->triggerEventForMerchantOrderItems($merchantOmsTriggerRequestTransfer);
     }
 
-    /**
-     * @return \Symfony\Component\HttpFoundation\JsonResponse
-     */
     protected function createSuccessJsonResponse(): JsonResponse
     {
         $message = $this->getFactory()
@@ -160,11 +147,6 @@ class TriggerMerchantOmsController extends AbstractSalesMerchantPortalGuiControl
         return new JsonResponse($zedUiFormResponseTransfer->toArray());
     }
 
-    /**
-     * @param string $errorMessage
-     *
-     * @return \Symfony\Component\HttpFoundation\JsonResponse
-     */
     protected function createErrorJsonResponse(string $errorMessage): JsonResponse
     {
         $zedUiFormResponseTransfer = $this->getFactory()

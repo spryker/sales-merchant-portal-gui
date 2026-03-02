@@ -107,11 +107,6 @@ class MerchantOrderItemGuiTableConfigurationProvider implements MerchantOrderIte
         $this->translatorFacade = $translatorFacade;
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\MerchantOrderTransfer $merchantOrderTransfer
-     *
-     * @return \Generated\Shared\Transfer\GuiTableConfigurationTransfer
-     */
     public function getConfiguration(MerchantOrderTransfer $merchantOrderTransfer): GuiTableConfigurationTransfer
     {
         $guiTableConfigurationBuilder = $this->guiTableFactory->createConfigurationBuilder();
@@ -135,11 +130,6 @@ class MerchantOrderItemGuiTableConfigurationProvider implements MerchantOrderIte
         return $guiTableConfigurationTransfer;
     }
 
-    /**
-     * @param \Spryker\Shared\GuiTable\Configuration\Builder\GuiTableConfigurationBuilderInterface $guiTableConfigurationBuilder
-     *
-     * @return \Spryker\Shared\GuiTable\Configuration\Builder\GuiTableConfigurationBuilderInterface
-     */
     protected function addColumns(GuiTableConfigurationBuilderInterface $guiTableConfigurationBuilder): GuiTableConfigurationBuilderInterface
     {
         $guiTableConfigurationBuilder->addColumnText(static::COL_KEY_SKU, 'SKU', true, false)
@@ -151,11 +141,6 @@ class MerchantOrderItemGuiTableConfigurationProvider implements MerchantOrderIte
         return $guiTableConfigurationBuilder;
     }
 
-    /**
-     * @param \Spryker\Shared\GuiTable\Configuration\Builder\GuiTableConfigurationBuilderInterface $guiTableConfigurationBuilder
-     *
-     * @return \Spryker\Shared\GuiTable\Configuration\Builder\GuiTableConfigurationBuilderInterface
-     */
     protected function addFilters(GuiTableConfigurationBuilderInterface $guiTableConfigurationBuilder): GuiTableConfigurationBuilderInterface
     {
         $guiTableConfigurationBuilder->addFilterSelect(
@@ -182,12 +167,6 @@ class MerchantOrderItemGuiTableConfigurationProvider implements MerchantOrderIte
         }, $stateMachineProcessTransfer->getStateNames());
     }
 
-    /**
-     * @param \Spryker\Shared\GuiTable\Configuration\Builder\GuiTableConfigurationBuilderInterface $guiTableConfigurationBuilder
-     * @param \Generated\Shared\Transfer\MerchantOrderTransfer $merchantOrderTransfer
-     *
-     * @return \Spryker\Shared\GuiTable\Configuration\Builder\GuiTableConfigurationBuilderInterface
-     */
     protected function addRowActions(
         GuiTableConfigurationBuilderInterface $guiTableConfigurationBuilder,
         MerchantOrderTransfer $merchantOrderTransfer
@@ -210,12 +189,6 @@ class MerchantOrderItemGuiTableConfigurationProvider implements MerchantOrderIte
         return $guiTableConfigurationBuilder;
     }
 
-    /**
-     * @param \Spryker\Shared\GuiTable\Configuration\Builder\GuiTableConfigurationBuilderInterface $guiTableConfigurationBuilder
-     * @param \Generated\Shared\Transfer\MerchantOrderTransfer $merchantOrderTransfer
-     *
-     * @return \Spryker\Shared\GuiTable\Configuration\Builder\GuiTableConfigurationBuilderInterface
-     */
     protected function addBatchActions(
         GuiTableConfigurationBuilderInterface $guiTableConfigurationBuilder,
         MerchantOrderTransfer $merchantOrderTransfer

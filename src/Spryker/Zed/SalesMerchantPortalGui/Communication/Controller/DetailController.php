@@ -109,11 +109,6 @@ class DetailController extends AbstractSalesMerchantPortalGuiController
         return new JsonResponse($responseData);
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\MerchantOrderTransfer $merchantOrderTransfer
-     *
-     * @return int
-     */
     protected function getCustomerMerchantOrderNumber(MerchantOrderTransfer $merchantOrderTransfer): int
     {
         $orderTransfer = $merchantOrderTransfer->getOrderOrFail();
@@ -127,11 +122,6 @@ class DetailController extends AbstractSalesMerchantPortalGuiController
             );
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\MerchantOrderTransfer $merchantOrderTransfer
-     *
-     * @return int
-     */
     protected function getShipmentsNumber(MerchantOrderTransfer $merchantOrderTransfer): int
     {
         $shipmentsNumber = 0;

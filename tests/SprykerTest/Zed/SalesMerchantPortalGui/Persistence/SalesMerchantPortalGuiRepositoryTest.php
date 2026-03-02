@@ -57,9 +57,6 @@ class SalesMerchantPortalGuiRepositoryTest extends Unit
      */
     protected $salesMerchantPortalGuiRepository;
 
-    /**
-     * @return void
-     */
     protected function setUp(): void
     {
         parent::setUp();
@@ -74,9 +71,6 @@ class SalesMerchantPortalGuiRepositoryTest extends Unit
         $this->merchantOrderTransfer2 = $this->createMerchantOrder($this->merchantTransfer);
     }
 
-    /**
-     * @return void
-     */
     public function testGetMerchantOrderTableDataReturnsCorrectMerchantOrderData(): void
     {
         // Arrange
@@ -94,9 +88,6 @@ class SalesMerchantPortalGuiRepositoryTest extends Unit
         $this->assertEquals($this->merchantTransfer->getMerchantReference(), $merchantOrderCollectionTransfer->getMerchantOrders()->offsetGet(1)->getMerchantReference());
     }
 
-    /**
-     * @return void
-     */
     public function testGetOrderTotalsPerStoreReturnsCorrectOrderTotalsData(): void
     {
         // Act
@@ -106,11 +97,6 @@ class SalesMerchantPortalGuiRepositoryTest extends Unit
         $this->assertEquals(2, $merchantOrderCountsTransfer->getTotal());
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\MerchantTransfer $merchantTransfer
-     *
-     * @return \Generated\Shared\Transfer\MerchantOrderTransfer
-     */
     protected function createMerchantOrder(MerchantTransfer $merchantTransfer): MerchantOrderTransfer
     {
         $orderTransfer = $this->tester->haveOrder([

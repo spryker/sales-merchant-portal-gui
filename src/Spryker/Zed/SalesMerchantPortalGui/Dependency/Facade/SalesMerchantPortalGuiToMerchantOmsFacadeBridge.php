@@ -27,11 +27,6 @@ class SalesMerchantPortalGuiToMerchantOmsFacadeBridge implements SalesMerchantPo
         $this->merchantOmsFacade = $merchantOmsFacade;
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\MerchantCriteriaTransfer $merchantCriteriaTransfer
-     *
-     * @return \Generated\Shared\Transfer\StateMachineProcessTransfer
-     */
     public function getMerchantOmsProcessByMerchant(
         MerchantCriteriaTransfer $merchantCriteriaTransfer
     ): StateMachineProcessTransfer {
@@ -48,21 +43,11 @@ class SalesMerchantPortalGuiToMerchantOmsFacadeBridge implements SalesMerchantPo
         return $this->merchantOmsFacade->getStateMachineItemsByStateIds($stateIds);
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\MerchantOmsTriggerRequestTransfer $merchantOmsTriggerRequestTransfer
-     *
-     * @return int
-     */
     public function triggerEventForMerchantOrderItems(MerchantOmsTriggerRequestTransfer $merchantOmsTriggerRequestTransfer): int
     {
         return $this->merchantOmsFacade->triggerEventForMerchantOrderItems($merchantOmsTriggerRequestTransfer);
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\MerchantOrderItemCollectionTransfer $merchantOrderItemCollectionTransfer
-     *
-     * @return \Generated\Shared\Transfer\MerchantOrderItemCollectionTransfer
-     */
     public function expandMerchantOrderItemsWithManualEvents(
         MerchantOrderItemCollectionTransfer $merchantOrderItemCollectionTransfer
     ): MerchantOrderItemCollectionTransfer {

@@ -28,41 +28,21 @@ class SalesMerchantPortalGuiToMerchantSalesOrderFacadeBridge implements SalesMer
         $this->merchantSalesOrderFacade = $merchantSalesOrderFacade;
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\MerchantOrderCriteriaTransfer $merchantOrderCriteriaTransfer
-     *
-     * @return \Generated\Shared\Transfer\MerchantOrderCollectionTransfer
-     */
     public function getMerchantOrderCollection(MerchantOrderCriteriaTransfer $merchantOrderCriteriaTransfer): MerchantOrderCollectionTransfer
     {
         return $this->merchantSalesOrderFacade->getMerchantOrderCollection($merchantOrderCriteriaTransfer);
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\MerchantOrderCriteriaTransfer $merchantOrderCriteriaTransfer
-     *
-     * @return \Generated\Shared\Transfer\MerchantOrderTransfer|null
-     */
     public function findMerchantOrder(MerchantOrderCriteriaTransfer $merchantOrderCriteriaTransfer): ?MerchantOrderTransfer
     {
         return $this->merchantSalesOrderFacade->findMerchantOrder($merchantOrderCriteriaTransfer);
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\MerchantOrderCriteriaTransfer $merchantOrderCriteriaTransfer
-     *
-     * @return int
-     */
     public function getMerchantOrdersCount(MerchantOrderCriteriaTransfer $merchantOrderCriteriaTransfer): int
     {
         return $this->merchantSalesOrderFacade->getMerchantOrdersCount($merchantOrderCriteriaTransfer);
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\MerchantOrderItemCriteriaTransfer $merchantOrderItemCriteriaTransfer
-     *
-     * @return \Generated\Shared\Transfer\MerchantOrderItemCollectionTransfer
-     */
     public function getMerchantOrderItemCollection(MerchantOrderItemCriteriaTransfer $merchantOrderItemCriteriaTransfer): MerchantOrderItemCollectionTransfer
     {
         return $this->merchantSalesOrderFacade->getMerchantOrderItemCollection($merchantOrderItemCriteriaTransfer);

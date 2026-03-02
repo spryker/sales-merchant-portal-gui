@@ -15,28 +15,13 @@ use Generated\Shared\Transfer\MerchantOrderTableCriteriaTransfer;
 
 interface SalesMerchantPortalGuiRepositoryInterface
 {
-    /**
-     * @param \Generated\Shared\Transfer\MerchantOrderTableCriteriaTransfer $merchantOrderTableCriteriaTransfer
-     *
-     * @return \Generated\Shared\Transfer\MerchantOrderCollectionTransfer
-     */
     public function getMerchantOrderTableData(
         MerchantOrderTableCriteriaTransfer $merchantOrderTableCriteriaTransfer
     ): MerchantOrderCollectionTransfer;
 
-    /**
-     * @param \Generated\Shared\Transfer\MerchantOrderItemTableCriteriaTransfer $merchantOrderItemTableCriteriaTransfer
-     *
-     * @return \Generated\Shared\Transfer\MerchantOrderItemCollectionTransfer
-     */
     public function getMerchantOrderItemTableData(
         MerchantOrderItemTableCriteriaTransfer $merchantOrderItemTableCriteriaTransfer
     ): MerchantOrderItemCollectionTransfer;
 
-    /**
-     * @param int $idMerchant
-     *
-     * @return \Generated\Shared\Transfer\MerchantOrderCountsTransfer
-     */
     public function getMerchantOrderCounts(int $idMerchant): MerchantOrderCountsTransfer;
 }

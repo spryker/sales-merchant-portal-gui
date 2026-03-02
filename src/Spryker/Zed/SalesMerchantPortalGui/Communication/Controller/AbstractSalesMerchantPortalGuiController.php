@@ -16,11 +16,6 @@ use Spryker\Zed\Kernel\Communication\Controller\AbstractController;
  */
 abstract class AbstractSalesMerchantPortalGuiController extends AbstractController
 {
-    /**
-     * @param \Generated\Shared\Transfer\MerchantOrderTransfer $merchantOrderTransfer
-     *
-     * @return bool
-     */
     protected function isMerchantOrderBelongsCurrentMerchant(MerchantOrderTransfer $merchantOrderTransfer): bool
     {
         $currentMerchantUserTransfer = $this->getFactory()->getMerchantUserFacade()->getCurrentMerchantUser();

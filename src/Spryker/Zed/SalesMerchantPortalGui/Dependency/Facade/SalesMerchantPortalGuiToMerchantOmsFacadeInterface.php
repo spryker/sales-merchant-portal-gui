@@ -14,11 +14,6 @@ use Generated\Shared\Transfer\StateMachineProcessTransfer;
 
 interface SalesMerchantPortalGuiToMerchantOmsFacadeInterface
 {
-    /**
-     * @param \Generated\Shared\Transfer\MerchantCriteriaTransfer $merchantCriteriaTransfer
-     *
-     * @return \Generated\Shared\Transfer\StateMachineProcessTransfer
-     */
     public function getMerchantOmsProcessByMerchant(
         MerchantCriteriaTransfer $merchantCriteriaTransfer
     ): StateMachineProcessTransfer;
@@ -30,18 +25,8 @@ interface SalesMerchantPortalGuiToMerchantOmsFacadeInterface
      */
     public function getStateMachineItemsByStateIds(array $stateIds): array;
 
-    /**
-     * @param \Generated\Shared\Transfer\MerchantOmsTriggerRequestTransfer $merchantOmsTriggerRequestTransfer
-     *
-     * @return int
-     */
     public function triggerEventForMerchantOrderItems(MerchantOmsTriggerRequestTransfer $merchantOmsTriggerRequestTransfer): int;
 
-    /**
-     * @param \Generated\Shared\Transfer\MerchantOrderItemCollectionTransfer $merchantOrderItemCollectionTransfer
-     *
-     * @return \Generated\Shared\Transfer\MerchantOrderItemCollectionTransfer
-     */
     public function expandMerchantOrderItemsWithManualEvents(
         MerchantOrderItemCollectionTransfer $merchantOrderItemCollectionTransfer
     ): MerchantOrderItemCollectionTransfer;

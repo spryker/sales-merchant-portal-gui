@@ -21,17 +21,11 @@ use Spryker\Zed\SalesMerchantPortalGui\SalesMerchantPortalGuiDependencyProvider;
  */
 class SalesMerchantPortalGuiPersistenceFactory extends AbstractPersistenceFactory
 {
-    /**
-     * @return \Spryker\Zed\SalesMerchantPortalGui\Persistence\Propel\Mapper\MerchantOrderTableDataMapper
-     */
     public function createMerchantOrderTableDataMapper(): MerchantOrderTableDataMapper
     {
         return new MerchantOrderTableDataMapper();
     }
 
-    /**
-     * @return \Spryker\Zed\SalesMerchantPortalGui\Persistence\Propel\Mapper\MerchantOrderItemTableDataMapper
-     */
     public function createMerchantOrderItemTableDataMapper(): MerchantOrderItemTableDataMapper
     {
         return new MerchantOrderItemTableDataMapper($this->getUtilEncodingService());
@@ -45,17 +39,11 @@ class SalesMerchantPortalGuiPersistenceFactory extends AbstractPersistenceFactor
         return $this->getProvidedDependency(SalesMerchantPortalGuiDependencyProvider::PROPEL_QUERY_MERCHANT_SALES_ORDER);
     }
 
-    /**
-     * @return \Orm\Zed\MerchantSalesOrder\Persistence\SpyMerchantSalesOrderItemQuery
-     */
     public function getMerchantSalesOrderItemPropelQuery(): SpyMerchantSalesOrderItemQuery
     {
         return $this->getProvidedDependency(SalesMerchantPortalGuiDependencyProvider::PROPEL_QUERY_MERCHANT_SALES_ORDER_ITEM);
     }
 
-    /**
-     * @return \Spryker\Zed\SalesMerchantPortalGui\Dependency\Service\SalesMerchantPortalGuiToUtilEncodingServiceInterface
-     */
     public function getUtilEncodingService(): SalesMerchantPortalGuiToUtilEncodingServiceInterface
     {
         return $this->getProvidedDependency(SalesMerchantPortalGuiDependencyProvider::SERVICE_UTIL_ENCODING);

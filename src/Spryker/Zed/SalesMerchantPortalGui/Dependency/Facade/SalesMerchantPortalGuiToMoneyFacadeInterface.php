@@ -11,10 +11,5 @@ use Generated\Shared\Transfer\MoneyTransfer;
 
 interface SalesMerchantPortalGuiToMoneyFacadeInterface
 {
-    /**
-     * @param \Generated\Shared\Transfer\MoneyTransfer $moneyTransfer
-     *
-     * @return string
-     */
     public function formatWithSymbol(MoneyTransfer $moneyTransfer): string;
 }

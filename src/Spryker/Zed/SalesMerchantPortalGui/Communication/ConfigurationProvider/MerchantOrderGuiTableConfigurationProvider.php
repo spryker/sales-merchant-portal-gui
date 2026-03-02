@@ -95,12 +95,6 @@ class MerchantOrderGuiTableConfigurationProvider implements MerchantOrderGuiTabl
      */
     protected GuiTableFactoryInterface $guiTableFactory;
 
-    /**
-     * @param \Spryker\Zed\SalesMerchantPortalGui\Dependency\Facade\SalesMerchantPortalGuiToStoreFacadeInterface $storeFacade
-     * @param \Spryker\Zed\SalesMerchantPortalGui\Dependency\Facade\SalesMerchantPortalGuiToMerchantOmsFacadeInterface $merchantOmsFacade
-     * @param \Spryker\Zed\SalesMerchantPortalGui\Dependency\Facade\SalesMerchantPortalGuiToMerchantUserFacadeInterface $merchantUserFacade
-     * @param \Spryker\Shared\GuiTable\GuiTableFactoryInterface $guiTableFactory
-     */
     public function __construct(
         SalesMerchantPortalGuiToStoreFacadeInterface $storeFacade,
         SalesMerchantPortalGuiToMerchantOmsFacadeInterface $merchantOmsFacade,
@@ -113,9 +107,6 @@ class MerchantOrderGuiTableConfigurationProvider implements MerchantOrderGuiTabl
         $this->guiTableFactory = $guiTableFactory;
     }
 
-    /**
-     * @return \Generated\Shared\Transfer\GuiTableConfigurationTransfer
-     */
     public function getConfiguration(): GuiTableConfigurationTransfer
     {
         $guiTableConfigurationBuilder = $this->guiTableFactory->createConfigurationBuilder();
@@ -131,11 +122,6 @@ class MerchantOrderGuiTableConfigurationProvider implements MerchantOrderGuiTabl
         return $guiTableConfigurationBuilder->createConfiguration();
     }
 
-    /**
-     * @param \Spryker\Shared\GuiTable\Configuration\Builder\GuiTableConfigurationBuilderInterface $guiTableConfigurationBuilder
-     *
-     * @return \Spryker\Shared\GuiTable\Configuration\Builder\GuiTableConfigurationBuilderInterface
-     */
     protected function addColumns(GuiTableConfigurationBuilderInterface $guiTableConfigurationBuilder): GuiTableConfigurationBuilderInterface
     {
         $guiTableConfigurationBuilder->addColumnText(static::COL_KEY_REFERENCE, 'Reference', true, false)
@@ -151,11 +137,6 @@ class MerchantOrderGuiTableConfigurationProvider implements MerchantOrderGuiTabl
         return $guiTableConfigurationBuilder;
     }
 
-    /**
-     * @param \Spryker\Shared\GuiTable\Configuration\Builder\GuiTableConfigurationBuilderInterface $guiTableConfigurationBuilder
-     *
-     * @return \Spryker\Shared\GuiTable\Configuration\Builder\GuiTableConfigurationBuilderInterface
-     */
     protected function addRowActions(GuiTableConfigurationBuilderInterface $guiTableConfigurationBuilder): GuiTableConfigurationBuilderInterface
     {
         $guiTableConfigurationBuilder->addRowActionDrawerUrlHtmlRenderer(
@@ -170,11 +151,6 @@ class MerchantOrderGuiTableConfigurationProvider implements MerchantOrderGuiTabl
         return $guiTableConfigurationBuilder;
     }
 
-    /**
-     * @param \Spryker\Shared\GuiTable\Configuration\Builder\GuiTableConfigurationBuilderInterface $guiTableConfigurationBuilder
-     *
-     * @return \Spryker\Shared\GuiTable\Configuration\Builder\GuiTableConfigurationBuilderInterface
-     */
     protected function addFilters(GuiTableConfigurationBuilderInterface $guiTableConfigurationBuilder): GuiTableConfigurationBuilderInterface
     {
         $guiTableConfigurationBuilder->addFilterDateRange('created', 'Created')

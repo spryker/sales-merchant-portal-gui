@@ -24,11 +24,6 @@ class SalesMerchantPortalGuiToCurrencyFacadeBridge implements SalesMerchantPorta
         $this->currencyFacade = $currencyFacade;
     }
 
-    /**
-     * @param string $isoCode
-     *
-     * @return \Generated\Shared\Transfer\CurrencyTransfer
-     */
     public function fromIsoCode(string $isoCode): CurrencyTransfer
     {
         return $this->currencyFacade->fromIsoCode($isoCode);

@@ -58,11 +58,6 @@ class SalesMerchantPortalGuiRepository extends AbstractRepository implements Sal
      */
     protected const COL_KEY_SKU = 'sku';
 
-    /**
-     * @param \Generated\Shared\Transfer\MerchantOrderTableCriteriaTransfer $merchantOrderTableCriteriaTransfer
-     *
-     * @return \Generated\Shared\Transfer\MerchantOrderCollectionTransfer
-     */
     public function getMerchantOrderTableData(
         MerchantOrderTableCriteriaTransfer $merchantOrderTableCriteriaTransfer
     ): MerchantOrderCollectionTransfer {
@@ -90,11 +85,6 @@ class SalesMerchantPortalGuiRepository extends AbstractRepository implements Sal
         return $merchantOrderCollectionTransfer;
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\MerchantOrderItemTableCriteriaTransfer $merchantOrderItemTableCriteriaTransfer
-     *
-     * @return \Generated\Shared\Transfer\MerchantOrderItemCollectionTransfer
-     */
     public function getMerchantOrderItemTableData(
         MerchantOrderItemTableCriteriaTransfer $merchantOrderItemTableCriteriaTransfer
     ): MerchantOrderItemCollectionTransfer {
@@ -278,12 +268,6 @@ class SalesMerchantPortalGuiRepository extends AbstractRepository implements Sal
         return $merchantSalesOrderQuery;
     }
 
-    /**
-     * @param \Orm\Zed\MerchantSalesOrder\Persistence\SpyMerchantSalesOrderQuery $merchantSalesOrderQuery
-     * @param \Generated\Shared\Transfer\MerchantOrderTableCriteriaTransfer $merchantOrderTableCriteriaTransfer
-     *
-     * @return \Orm\Zed\MerchantSalesOrder\Persistence\SpyMerchantSalesOrderQuery
-     */
     protected function applyMerchantOrderSearch(
         SpyMerchantSalesOrderQuery $merchantSalesOrderQuery,
         MerchantOrderTableCriteriaTransfer $merchantOrderTableCriteriaTransfer
@@ -309,12 +293,6 @@ class SalesMerchantPortalGuiRepository extends AbstractRepository implements Sal
         return $merchantSalesOrderQuery->add($orderReferenceSearchCriteria);
     }
 
-    /**
-     * @param \Orm\Zed\MerchantSalesOrder\Persistence\SpyMerchantSalesOrderItemQuery $merchantSalesOrderItemQuery
-     * @param \Generated\Shared\Transfer\MerchantOrderItemTableCriteriaTransfer $merchantOrderItemTableCriteriaTransfer
-     *
-     * @return \Orm\Zed\MerchantSalesOrder\Persistence\SpyMerchantSalesOrderItemQuery
-     */
     protected function applyMerchantOrderItemSearch(
         SpyMerchantSalesOrderItemQuery $merchantSalesOrderItemQuery,
         MerchantOrderItemTableCriteriaTransfer $merchantOrderItemTableCriteriaTransfer
@@ -334,12 +312,6 @@ class SalesMerchantPortalGuiRepository extends AbstractRepository implements Sal
         return $merchantSalesOrderItemQuery->add($orderItemNameSearchCriteria);
     }
 
-    /**
-     * @param \Propel\Runtime\ActiveQuery\Criteria $criteria
-     * @param string $searchTerm
-     *
-     * @return \Propel\Runtime\ActiveQuery\Criterion\LikeCriterion
-     */
     protected function getOrderReferenceSearchCriteria(Criteria $criteria, string $searchTerm): LikeCriterion
     {
         /** @var \Propel\Runtime\ActiveQuery\Criterion\LikeCriterion $likeCriterion */
@@ -352,12 +324,6 @@ class SalesMerchantPortalGuiRepository extends AbstractRepository implements Sal
         return $likeCriterion->setIgnoreCase(true);
     }
 
-    /**
-     * @param \Propel\Runtime\ActiveQuery\Criteria $criteria
-     * @param string $searchTerm
-     *
-     * @return \Propel\Runtime\ActiveQuery\Criterion\LikeCriterion
-     */
     protected function getMerchantOrderReferenceSearchCriteria(Criteria $criteria, string $searchTerm): LikeCriterion
     {
         /** @var \Propel\Runtime\ActiveQuery\Criterion\LikeCriterion $likeCriterion */
@@ -370,12 +336,6 @@ class SalesMerchantPortalGuiRepository extends AbstractRepository implements Sal
         return $likeCriterion->setIgnoreCase(true);
     }
 
-    /**
-     * @param \Propel\Runtime\ActiveQuery\Criteria $criteria
-     * @param string $searchTerm
-     *
-     * @return \Propel\Runtime\ActiveQuery\Criterion\LikeCriterion
-     */
     protected function getOrderFirstNameSearchCriteria(Criteria $criteria, string $searchTerm): LikeCriterion
     {
         /** @var \Propel\Runtime\ActiveQuery\Criterion\LikeCriterion $likeCriterion */
@@ -388,12 +348,6 @@ class SalesMerchantPortalGuiRepository extends AbstractRepository implements Sal
         return $likeCriterion->setIgnoreCase(true);
     }
 
-    /**
-     * @param \Propel\Runtime\ActiveQuery\Criteria $criteria
-     * @param string $searchTerm
-     *
-     * @return \Propel\Runtime\ActiveQuery\Criterion\LikeCriterion
-     */
     protected function getOrderLastNameSearchCriteria(Criteria $criteria, string $searchTerm): LikeCriterion
     {
         /** @var \Propel\Runtime\ActiveQuery\Criterion\LikeCriterion $likeCriterion */
@@ -406,12 +360,6 @@ class SalesMerchantPortalGuiRepository extends AbstractRepository implements Sal
         return $likeCriterion->setIgnoreCase(true);
     }
 
-    /**
-     * @param \Propel\Runtime\ActiveQuery\Criteria $criteria
-     * @param string $searchTerm
-     *
-     * @return \Propel\Runtime\ActiveQuery\Criterion\LikeCriterion
-     */
     protected function getOrderEmailSearchCriteria(Criteria $criteria, string $searchTerm): LikeCriterion
     {
         /** @var \Propel\Runtime\ActiveQuery\Criterion\LikeCriterion $likeCriterion */
@@ -424,12 +372,6 @@ class SalesMerchantPortalGuiRepository extends AbstractRepository implements Sal
         return $likeCriterion->setIgnoreCase(true);
     }
 
-    /**
-     * @param \Propel\Runtime\ActiveQuery\Criteria $criteria
-     * @param string $searchTerm
-     *
-     * @return \Propel\Runtime\ActiveQuery\Criterion\LikeCriterion
-     */
     protected function getOrderItemNameSearchCriteria(Criteria $criteria, string $searchTerm): LikeCriterion
     {
         /** @var \Propel\Runtime\ActiveQuery\Criterion\LikeCriterion $likeCriterion */
@@ -442,12 +384,6 @@ class SalesMerchantPortalGuiRepository extends AbstractRepository implements Sal
         return $likeCriterion->setIgnoreCase(true);
     }
 
-    /**
-     * @param \Propel\Runtime\ActiveQuery\Criteria $criteria
-     * @param string $searchTerm
-     *
-     * @return \Propel\Runtime\ActiveQuery\Criterion\LikeCriterion
-     */
     protected function getOrderItemSkuSearchCriteria(Criteria $criteria, string $searchTerm): LikeCriterion
     {
         /** @var \Propel\Runtime\ActiveQuery\Criterion\LikeCriterion $likeCriterion */
@@ -460,12 +396,6 @@ class SalesMerchantPortalGuiRepository extends AbstractRepository implements Sal
         return $likeCriterion->setIgnoreCase(true);
     }
 
-    /**
-     * @param \Orm\Zed\MerchantSalesOrder\Persistence\SpyMerchantSalesOrderQuery $merchantSalesOrderQuery
-     * @param \Generated\Shared\Transfer\MerchantOrderTableCriteriaTransfer $merchantOrderTableCriteriaTransfer
-     *
-     * @return \Orm\Zed\MerchantSalesOrder\Persistence\SpyMerchantSalesOrderQuery
-     */
     protected function addMerchantOrderSorting(
         SpyMerchantSalesOrderQuery $merchantSalesOrderQuery,
         MerchantOrderTableCriteriaTransfer $merchantOrderTableCriteriaTransfer
@@ -489,12 +419,6 @@ class SalesMerchantPortalGuiRepository extends AbstractRepository implements Sal
         return $merchantSalesOrderQuery;
     }
 
-    /**
-     * @param \Orm\Zed\MerchantSalesOrder\Persistence\SpyMerchantSalesOrderItemQuery $merchantSalesOrderItemQuery
-     * @param \Generated\Shared\Transfer\MerchantOrderItemTableCriteriaTransfer $merchantOrderItemTableCriteriaTransfer
-     *
-     * @return \Orm\Zed\MerchantSalesOrder\Persistence\SpyMerchantSalesOrderItemQuery
-     */
     protected function addMerchantOrderItemSorting(
         SpyMerchantSalesOrderItemQuery $merchantSalesOrderItemQuery,
         MerchantOrderItemTableCriteriaTransfer $merchantOrderItemTableCriteriaTransfer
@@ -517,12 +441,6 @@ class SalesMerchantPortalGuiRepository extends AbstractRepository implements Sal
         return $merchantSalesOrderItemQuery;
     }
 
-    /**
-     * @param \Orm\Zed\MerchantSalesOrder\Persistence\SpyMerchantSalesOrderQuery $merchantSalesOrderQuery
-     * @param \Generated\Shared\Transfer\MerchantOrderTableCriteriaTransfer $merchantOrderTableCriteriaTransfer
-     *
-     * @return \Orm\Zed\MerchantSalesOrder\Persistence\SpyMerchantSalesOrderQuery
-     */
     protected function addMerchantOrderFilters(
         SpyMerchantSalesOrderQuery $merchantSalesOrderQuery,
         MerchantOrderTableCriteriaTransfer $merchantOrderTableCriteriaTransfer
@@ -534,12 +452,6 @@ class SalesMerchantPortalGuiRepository extends AbstractRepository implements Sal
         return $merchantSalesOrderQuery;
     }
 
-    /**
-     * @param \Orm\Zed\MerchantSalesOrder\Persistence\SpyMerchantSalesOrderItemQuery $merchantSalesOrderItemQuery
-     * @param \Generated\Shared\Transfer\MerchantOrderItemTableCriteriaTransfer $merchantOrderItemTableCriteriaTransfer
-     *
-     * @return \Orm\Zed\MerchantSalesOrder\Persistence\SpyMerchantSalesOrderItemQuery
-     */
     protected function addMerchantOrderItemFilters(
         SpyMerchantSalesOrderItemQuery $merchantSalesOrderItemQuery,
         MerchantOrderItemTableCriteriaTransfer $merchantOrderItemTableCriteriaTransfer
@@ -552,12 +464,6 @@ class SalesMerchantPortalGuiRepository extends AbstractRepository implements Sal
         return $merchantSalesOrderItemQuery;
     }
 
-    /**
-     * @param \Orm\Zed\MerchantSalesOrder\Persistence\SpyMerchantSalesOrderQuery $merchantSalesOrderQuery
-     * @param \Generated\Shared\Transfer\MerchantOrderTableCriteriaTransfer $merchantOrderTableCriteriaTransfer
-     *
-     * @return \Orm\Zed\MerchantSalesOrder\Persistence\SpyMerchantSalesOrderQuery
-     */
     protected function addCreatedMerchantOrderFilter(
         SpyMerchantSalesOrderQuery $merchantSalesOrderQuery,
         MerchantOrderTableCriteriaTransfer $merchantOrderTableCriteriaTransfer
@@ -579,12 +485,6 @@ class SalesMerchantPortalGuiRepository extends AbstractRepository implements Sal
         return $merchantSalesOrderQuery;
     }
 
-    /**
-     * @param \Orm\Zed\MerchantSalesOrder\Persistence\SpyMerchantSalesOrderQuery $merchantSalesOrderQuery
-     * @param \Generated\Shared\Transfer\MerchantOrderTableCriteriaTransfer $merchantOrderTableCriteriaTransfer
-     *
-     * @return \Orm\Zed\MerchantSalesOrder\Persistence\SpyMerchantSalesOrderQuery
-     */
     protected function addStoreMerchantOrderFilter(
         SpyMerchantSalesOrderQuery $merchantSalesOrderQuery,
         MerchantOrderTableCriteriaTransfer $merchantOrderTableCriteriaTransfer
@@ -600,12 +500,6 @@ class SalesMerchantPortalGuiRepository extends AbstractRepository implements Sal
         return $merchantSalesOrderQuery;
     }
 
-    /**
-     * @param \Orm\Zed\MerchantSalesOrder\Persistence\SpyMerchantSalesOrderQuery $merchantSalesOrderQuery
-     * @param \Generated\Shared\Transfer\MerchantOrderTableCriteriaTransfer $merchantOrderTableCriteriaTransfer
-     *
-     * @return \Orm\Zed\MerchantSalesOrder\Persistence\SpyMerchantSalesOrderQuery
-     */
     protected function addOrderItemStatesMerchantOrderFilter(
         SpyMerchantSalesOrderQuery $merchantSalesOrderQuery,
         MerchantOrderTableCriteriaTransfer $merchantOrderTableCriteriaTransfer
@@ -623,12 +517,6 @@ class SalesMerchantPortalGuiRepository extends AbstractRepository implements Sal
         return $merchantSalesOrderQuery;
     }
 
-    /**
-     * @param \Orm\Zed\MerchantSalesOrder\Persistence\SpyMerchantSalesOrderItemQuery $merchantSalesOrderItemQuery
-     * @param \Generated\Shared\Transfer\MerchantOrderItemTableCriteriaTransfer $merchantOrderItemTableCriteriaTransfer
-     *
-     * @return \Orm\Zed\MerchantSalesOrder\Persistence\SpyMerchantSalesOrderItemQuery
-     */
     protected function addOrderItemStatesMerchantOrderItemFilter(
         SpyMerchantSalesOrderItemQuery $merchantSalesOrderItemQuery,
         MerchantOrderItemTableCriteriaTransfer $merchantOrderItemTableCriteriaTransfer
@@ -644,11 +532,6 @@ class SalesMerchantPortalGuiRepository extends AbstractRepository implements Sal
         return $merchantSalesOrderItemQuery;
     }
 
-    /**
-     * @param \Propel\Runtime\Util\PropelModelPager $propelPager
-     *
-     * @return \Generated\Shared\Transfer\PaginationTransfer
-     */
     protected function hydratePaginationTransfer(
         PropelModelPager $propelPager
     ): PaginationTransfer {
@@ -665,13 +548,6 @@ class SalesMerchantPortalGuiRepository extends AbstractRepository implements Sal
             ->setPreviousPage($propelPager->getPreviousPage());
     }
 
-    /**
-     * @param \Propel\Runtime\ActiveQuery\ModelCriteria $query
-     * @param string $orderColumn
-     * @param string $orderDirection
-     *
-     * @return \Propel\Runtime\ActiveQuery\ModelCriteria
-     */
     protected function addNaturalSorting(
         ModelCriteria $query,
         string $orderColumn,

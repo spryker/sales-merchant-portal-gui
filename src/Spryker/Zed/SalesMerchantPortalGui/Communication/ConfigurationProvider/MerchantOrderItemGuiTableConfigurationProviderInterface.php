@@ -12,10 +12,5 @@ use Generated\Shared\Transfer\MerchantOrderTransfer;
 
 interface MerchantOrderItemGuiTableConfigurationProviderInterface
 {
-    /**
-     * @param \Generated\Shared\Transfer\MerchantOrderTransfer $merchantOrderTransfer
-     *
-     * @return \Generated\Shared\Transfer\GuiTableConfigurationTransfer
-     */
     public function getConfiguration(MerchantOrderTransfer $merchantOrderTransfer): GuiTableConfigurationTransfer;
 }

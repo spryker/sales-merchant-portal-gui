@@ -79,11 +79,6 @@ class MerchantOrderItemGuiTableDataProvider extends AbstractGuiTableDataProvider
         $this->merchantOrderItemTableExpanderPlugins = $merchantOrderItemTableExpanderPlugins;
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\GuiTableDataRequestTransfer $guiTableDataRequestTransfer
-     *
-     * @return \Spryker\Shared\Kernel\Transfer\AbstractTransfer
-     */
     protected function createCriteria(GuiTableDataRequestTransfer $guiTableDataRequestTransfer): AbstractTransfer
     {
         return (new MerchantOrderItemTableCriteriaTransfer())
@@ -136,11 +131,6 @@ class MerchantOrderItemGuiTableDataProvider extends AbstractGuiTableDataProvider
         return $this->expandDataResponse($guiTableDataResponseTransfer, $salesOrderItemIds);
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\ItemTransfer $itemTransfer
-     *
-     * @return string|null
-     */
     protected function getImageUrl(ItemTransfer $itemTransfer): ?string
     {
         /** @var \ArrayObject<int, \Generated\Shared\Transfer\ProductImageTransfer> $images */

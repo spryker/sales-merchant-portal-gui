@@ -43,13 +43,6 @@ class OrdersDashboardCardProvider implements OrdersDashboardCardProviderInterfac
      */
     protected Environment $twigEnvironment;
 
-    /**
-     * @param \Spryker\Zed\SalesMerchantPortalGui\Persistence\SalesMerchantPortalGuiRepositoryInterface $salesMerchantPortalGuiRepository
-     * @param \Spryker\Zed\SalesMerchantPortalGui\Dependency\Facade\SalesMerchantPortalGuiToMerchantUserFacadeInterface $merchantUserFacade
-     * @param \Spryker\Zed\SalesMerchantPortalGui\Dependency\Facade\SalesMerchantPortalGuiToRouterFacadeInterface $routerFacade
-     * @param \Spryker\Zed\SalesMerchantPortalGui\SalesMerchantPortalGuiConfig $salesMerchantPortalGuiConfig
-     * @param \Twig\Environment $twigEnvironment
-     */
     public function __construct(
         SalesMerchantPortalGuiRepositoryInterface $salesMerchantPortalGuiRepository,
         SalesMerchantPortalGuiToMerchantUserFacadeInterface $merchantUserFacade,
@@ -64,9 +57,6 @@ class OrdersDashboardCardProvider implements OrdersDashboardCardProviderInterfac
         $this->twigEnvironment = $twigEnvironment;
     }
 
-    /**
-     * @return \Generated\Shared\Transfer\MerchantDashboardCardTransfer
-     */
     public function getDashboardCard(): MerchantDashboardCardTransfer
     {
         $idMerchant = $this->merchantUserFacade->getCurrentMerchantUser()->getIdMerchantOrFail();

@@ -70,9 +70,6 @@ class MerchantOrderItemTableDataMapper
      */
     protected SalesMerchantPortalGuiToUtilEncodingServiceInterface $utilEncodingService;
 
-    /**
-     * @param \Spryker\Zed\SalesMerchantPortalGui\Dependency\Service\SalesMerchantPortalGuiToUtilEncodingServiceInterface $utilEncodingService
-     */
     public function __construct(SalesMerchantPortalGuiToUtilEncodingServiceInterface $utilEncodingService)
     {
         $this->utilEncodingService = $utilEncodingService;
