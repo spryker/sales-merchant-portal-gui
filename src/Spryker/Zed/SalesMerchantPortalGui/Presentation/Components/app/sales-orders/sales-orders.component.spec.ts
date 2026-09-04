@@ -12,7 +12,7 @@ import { SalesOrdersComponent } from './sales-orders.component';
     `,
 })
 class TestHostComponent {
-    tableConfig: any = {};
+    tableConfig: unknown = {};
     tableId = '';
 }
 

@@ -16,7 +16,7 @@ import { ManageOrderComponent } from './manage-order.component';
     `,
 })
 class TestHostComponent {
-    orderDetails: any = {};
+    orderDetails: unknown = {};
 }
 
 describe('ManageOrderComponent', () => {
