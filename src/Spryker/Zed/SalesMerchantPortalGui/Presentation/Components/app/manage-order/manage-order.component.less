@@ -17,6 +17,7 @@
 @manage-order-totals-item-indent-bottom: var(--spy-manage-order-totals-item-indent-bottom, 10px);
 @manage-order-totals-item-options-padding-left: var(--spy-manage-order-totals-item-options-padding-left, 30px);
 @manage-order-totals-item-border: var(--spy-manage-order-totals-item-border, 1px solid @gray-light);
+@manage-order-inner-table-padding: var(--spy-manage-order-inner-table-padding, 3px 5px 5px);
 
 .mp-manage-order {
     display: block;
@@ -165,6 +166,11 @@
     .spy-table-filters-feature {
         padding: 0;
         background: none;
+    }
+
+    &__inner-table .ant-table {
+        padding: @manage-order-inner-table-padding;
+        background: @gray-lighter;
     }
 
     &__totals {

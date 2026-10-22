@@ -172,6 +172,13 @@
                                     </web-spy-card>
                                 {% endblock %}
 
+                                {% block documentsCard %}
+                                    {% include '@MerchantSalesInvoice/Partials/merchant-order-documents.twig' ignore missing with {
+                                        merchantOrder: merchantOrder,
+                                        mainClass: mainClass,
+                                    } only %}
+                                {% endblock %}
+
                                 {% block customerCard %}
                                     {% set customerItems = [
                                         {
