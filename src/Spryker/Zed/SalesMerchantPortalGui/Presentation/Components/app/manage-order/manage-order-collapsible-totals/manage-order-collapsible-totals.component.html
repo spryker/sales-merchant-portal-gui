@@ -1,3 +1,5 @@
-<spy-collapsible (activeChange)="internalUrl = url" [spyTitle]="spyTitle">
-    <spy-html-renderer [urlHtml]="internalUrl"></spy-html-renderer>
+<spy-collapsible [spyTitle]="spyTitle" [alwaysRender]="false">
+    <ng-template>
+        <spy-html-renderer [urlHtml]="url"></spy-html-renderer>
+    </ng-template>
 </spy-collapsible>
